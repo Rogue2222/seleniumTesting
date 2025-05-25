@@ -35,7 +35,6 @@ public class PartiKellekekSeleniumTesting {
     private final By changeDataButtonLocator = By.xpath("//li/a[@class='login-box-btn login-box__btn-reg btn btn-secondary' and contains(text(), 'Adat')]");
     private final By exitButtonLocator = By.xpath("//div/a[@class='login-box-btn login-box__btn-logout btn btn-primary']");
     private final By infoElementLocator = By.tagName("h1");
-
     private final By passwordChangeInputLocator = By.xpath("//div[@class='form-group new-customer__password']/input[@id='passwd1']");
     private final By passwordChangeConfirmationInputLocator = By.xpath("//div[@class='form-group new-customer__password-again']/input[@id='passwd2']");
     private final By postalCodeLocator = By.xpath("//div[@class='form-group new-customer__default-zip']/input[@id='default_irany']");
@@ -77,14 +76,13 @@ public class PartiKellekekSeleniumTesting {
         assertTrue("The featuredOfferText should be 'Inform?ci?k'", infoElementText.contains("INFO"));
     }
 
+    // email: stefon@ereirqu.com
+    // pass: test_1Selenium@
     // Fill simple form and send (eg. Login)   Fill input 2
     private void login() {
         takeScreenshot("loginBefore");
         WebElement profileBeforeLogin = waitAndReturnElement(profileBeforeLoginLocator);
         profileBeforeLogin.click();
-
-//      email: stefon@ereirqu.com
-//      pass: test_1Selenium@
 
         // Fill email field
         WebElement emailInput = waitAndReturnElement(emailInputLocator);
@@ -132,7 +130,7 @@ public class PartiKellekekSeleniumTesting {
         WebElement exitButton = waitAndReturnElement(exitButtonLocator);
         exitButton.click();
 
-
+        // check if we have to log in again
         WebElement profileBeforeLogin = waitAndReturnElement(profileBeforeLoginLocator);
         profileBeforeLogin.click();
 
@@ -141,7 +139,7 @@ public class PartiKellekekSeleniumTesting {
         assertTrue("Email input should be enabled after login", emailInput.isDisplayed());
     }
 
-   // Fill input 3, WebDriver configuration, Filling or reading Radio button, Form sending with user
+   // Fill input 4, WebDriver configuration, Filling or reading Radio button, Form sending with user
     @Test
     public void testSendigForm() {
         this.driver.get("https://www.partikellekek.hu");
